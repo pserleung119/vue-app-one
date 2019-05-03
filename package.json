@@ -1,6 +1,8 @@
 {
   "name": "vue-app-one",
   "version": "0.1.0",
+  "description": "a vue js project that cooperates with firebase",
+  "author": "Chris Leung <pserleung@gmail.com>",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
