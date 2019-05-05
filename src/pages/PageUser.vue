@@ -2,7 +2,7 @@
   <div class="hello">
     <div v-if="authUser">
       <h2>Hello {{ authUser.email }}!!</h2>
-      <h3>Your are signed in from {{ location }}.</h3>
+      <h3 v-if="location">Your are signed in from {{ location }}.</h3>
       <div>
       </div>
     </div>
@@ -26,13 +26,12 @@ export default {
       this.authUser = user
     })
     axios
-      .get('https://api.ipgeolocation.io/ipgeo?apiKey=da87335f71aa4bdbb6480658ce7733fb')
+      .get(`https://api.ipgeolocation.io/ipgeo?apiKey=${process.env.VUE_APP_IPLOCATIONKEY}`)
       .then(result => {
         this.location = result.data.country_name
       })
       .catch(error => {
         console.log(error)
-        this.location = 'Somewhere'
       })
   }
 }
